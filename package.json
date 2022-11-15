@@ -1,0 +1,8 @@
+{
+  "name": "AuthenticationSystem",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/innovatorved/auth-prep",
+  "author": "Ved Gupta <vedgupta@protonmail.com>",
+  "license": "MIT"
+}
