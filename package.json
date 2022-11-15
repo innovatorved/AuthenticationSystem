@@ -1,15 +1,23 @@
 {
-  "name": "AuthenticationSystem",
+  "name": "authentication-system",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
   "repository": "https://github.com/innovatorved/auth-prep",
   "author": "Ved Gupta <vedgupta@protonmail.com>",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
