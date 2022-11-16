@@ -1,11 +1,11 @@
-require("dotenv").config()
-const express = require("express")
+require("dotenv").config();
+require("../database/database.js").connect();
 
-const app = express()
+const express = require("express");
+const app = express();
 
 app.get("/", (req, res) => {
-    res.send("<h1>API is Working</h1>")
-})
-
+  res.send("<h1>API is Working</h1>");
+});
 
 module.exports = app;
