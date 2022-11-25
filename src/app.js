@@ -15,6 +15,12 @@ app.use(
   require("./middleware/auth"),
   require("./routes/secure/routes")
 ); // Secure routes
+app.use(
+  "/admin",
+  require("./middleware/auth"),
+  require("./middleware/checkadmin"),
+  require("./routes/admin/routes")
+);
 
 app.get("/", (req, res) => {
   res.status(200).json({
