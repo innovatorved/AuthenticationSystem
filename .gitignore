@@ -10,6 +10,12 @@ lerna-debug.log*
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
+# Remove .devcontainer file
+.devcontainer
+.devcontainer/*
+.devcontainer/
+.devcontainer/devcontainer.json
+
 # Runtime data
 pids
 *.pid
