@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/updateuser", async (req, res) => {
+router.post("/updateprofile", async (req, res) => {
   try {
     const { firstName, lastName, email } = req.body;
     const id = req.user.id;
@@ -77,4 +77,43 @@ router.get("/getuserinfo", async (req, res) => {
   }
 });
 
+router.post("/changepassword", async (req, res) => {
+  try {
+    const { current_password, newpassword } = req.body;
+    const id = req.user.id;
+
+    if (!(current_password && newpassword)) {
+      res.status(400).json({
+        success: false,
+        error: "Compulsory fields are not filled",
+      });
+      return;
+    }
+
+    const isUserExist = await User.findById(id);
+    const isPasswordCorrect = await bcrypt.compare(
+      current_password,
+      isUserExist.password
+    );
+    if (!isPasswordCorrect) {
+      res.status(402).json({
+        success: false,
+        error: "Password is not Correct",
+      });
+      return;
+    }
+    const HashPassword = await bcrypt.hash(newpassword, 5);
+    const user = await User.findByIdAndUpdate(id, { password: HashPassword });
+
+    res.status(200).json({
+      success: true,
+    });
+    return;
+  } catch (error) {
+    res.status(401).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
 module.exports = router;
