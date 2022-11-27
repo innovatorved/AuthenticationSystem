@@ -9,7 +9,7 @@ Deploy Application on Cloud
 ### Clone the Repo
 
 ```bash
-    ghttps://github.com/innovatorved/AuthenticationSystem.git
+    git clone https://github.com/innovatorved/AuthenticationSystem.git
 ```
 
 ### Install Dependencies
