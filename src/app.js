@@ -3,9 +3,18 @@ require("../database/database.js").connect();
 
 const express = require("express");
 const cookieParser = require("cookie-parser");
+const rateLimit = require("express-rate-limit");
+
+const windowTime = 1;
+const maxRequestInTime = 25;
 
 const app = express();
+const rateLimiter = rateLimit({
+  windowMs: windowTime * 60 * 1000,
+  max: maxRequestInTime,
+});
 
+app.use(rateLimiter);
 app.use(express.json());
 app.use(cookieParser());
 
