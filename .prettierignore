@@ -9,6 +9,8 @@ src/node_modules
 .pnp.js
 Makefile
 
+.github
+
 # testing
 /coverage
 
